@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Pagina Inicial - NBAZone</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script>alert('Site demonstrativo, apenas para estudos')</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+
+    body{
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    h1{
+      font-family: 'Eina 03', sans-serif;
+      font-size: 3em;
+      line-height: 1.4em;
+      font-weight: 700;
+    }
+    p {
+      margin-bottom: 0px;
+      font-size: 1.125em;
+      line-height: 1.6em;
+      padding: 15px;
+  }
+    header{
+      width: 100%;
+      height: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+  .botao {
+    position: fixed;
+    position: absolute;
+    top: 110%; 
+    left: 25%; 
+    transform: translate(-40%, -40%); 
+    padding: 20px 20px;
+    font-size: 25px;
+    background-color: #ff9900;
+    color: #fff;
+    border: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    }
+    .bg-light {
+      z-index: 1;
+    }
+    .logo{
+      width: 4em;
+      height: 4em;
+    }
+    .photo{
+      position: absolute;
+      right: 0; 
+      max-width: 100%;
+      height: auto;
+    }
+    .contanier{
+      font-family: 'DM Sans', sans-serif;
+        color: #ffffff;
+        font-size: 1em;
+        line-height: 1.4em;
+    }
+    .section-hero {
+      position: relative;
+      padding-top: 198px;
+      padding-bottom: 198px;
+      background-position: 100% 50%;
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+    .titulo{
+      display: inline-block;
+      
+    }
+    footer {
+      background-color: #1d1d1d;
+      color: #fff;
+      padding: 30px 0;
+      font-size: 14px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+  }
+  footer ul {
+      list-style: none;
+      padding: 0;
+  }
+  footer ul li {
+      display: inline-block;
+      margin: 0 10px;
+  }
+  footer ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+  footer ul li a:hover {
+      color: #5f00cc;
+  }
+
+  footer .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+  }
+  footer .social-icons a:hover {
+      color: #4a2fc4;
+  }
+  footer p {
+      margin-top: 20px;
+      font-size: 12px;
+  }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <img src="https://icons.pn.vg/2019/11/14/5dcd9fafae66a.png" class="logo" alt="NBA LOGO">
+        <h1 class="titulo">NBAZone</h1>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="introducao.html">Start</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</header>
+<img src="https://i.ibb.co/D8Vq4yy/splashbaner.png" alt="">
+
+<a href="introducao.html" class="botao">Vamos começar</a>
+<footer>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <ul>
+                  <li><a href="SplashScreen.html">Home</a></li>
+                  <li><a href="#">Times</a></li>
+                  <li><a href="players.html">Jogadores</a></li>
+                  <li><a href="arenas.html">Arenas</a></li>
+                  <li><a href="contato.html">Contato</a></li>
+              </ul>
+          </div>
+          <div class="col-md-6">
+              <div class="social-icons">
+                  <a href="https://github.com/techybluiz"><i class="fa-brands fa-github"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/bianca-santos-71227a19b/"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://mail.google.com/mail/u/0/#inbox?compose=jrjtXSnhDSBMsQXLsFNHlJrnVZsbhLNnBLzZNKgvVgRNCpXGcmGzVsCKBtzhlhHgsDJrCKMN"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <p>&copy; 2024 Todos os direitos reservados. Desenvolvido por Bianca Luiz.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-fIS28fKNuSy82olZu2UNUbzJrjKk4cOeY0PnN/3kq5CkTX9aW1Kgq3M08iIKG/mnEw5rwS8QqH0a1ED6N5O4Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>

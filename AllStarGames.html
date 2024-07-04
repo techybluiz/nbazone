@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> All Star Games - NBA</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        color: aliceblue;
+        background: rgb(1,60,119);
+        background: linear-gradient(90deg, rgba(1,60,119,1) 0%, rgba(46,46,97,1) 52%, rgba(25,25,112,1) 100%);
+    }
+        .star {
+        color: gold;}
+
+.TESTE{
+  font-family: Plusjakartasans, sans-serif;
+  line-height: 72px;
+  float: left;
+}
+
+    h1 {
+      font-family: "Roboto Mono", monospace;
+        color: rgb(255, 187, 0);
+        text-align: center;
+        border: 2px;
+    }
+    footer{
+        text-align: center;
+    }
+    section {
+        padding: 0px;
+    }
+    p{
+      margin: 20px;
+      padding: 25px;
+      font-size: 20px;
+    }
+    header{
+      top: 0;
+      width: 100%;
+    }
+    .baner {
+      width: 100%;
+      height: auto;
+    }
+    footer {
+      background-color: #1d1d1d;
+      color: #fff;
+      padding: 30px 0;
+      font-size: 14px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+  }
+  /* Estilos para a seção de links no footer */
+  footer ul {
+      list-style: none;
+      padding: 0;
+  }
+  footer ul li {
+      display: inline-block;
+      margin: 0 10px;
+  }
+  footer ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+  footer ul li a:hover {
+      color: #5f00cc;
+  }
+
+  footer .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+  }
+  footer .social-icons a:hover {
+      color: #4a2fc4;
+  }
+  footer p {
+      margin-top: 20px;
+      font-size: 12px;
+  }
+
+  </style>
+</head>
+<body>
+  <img src="https://i.ibb.co/tH9Z1Mh/stargamesbaner.png" class="baner" alt="">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <img class="navbar-brand" src="data:image/png;base64,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"></a>
+            <h1 style="color: rgb(255, 187, 0);"> <span class="star">&#9733;&#9733;&#9733;</span></h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">All Star Games</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/pasta_teste/arenas.html">Arenas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Times</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/pasta_teste/players.html">Jogadores</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contato</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <hr>
+<h1>Star games! Aqui você encontra apenas os melhores</h1>
+<br>
+    <section>
+        <div>
+            <h1><b>All Star Games</b></h1>
+            <br>
+            <p>
+                O All-Star Game da NBA é um dos eventos mais aguardados e emocionantes do calendário esportivo. Aqui está tudo o que você precisa saber, desde sua história fascinante até detalhes interessantes sobre este evento único: <br>
+            <ul>
+                <li><b>Origens e História:</b> O primeiro All-Star Game da NBA foi realizado em 1951, em Boston, como uma forma de exibir os melhores jogadores da liga em um único jogo. O formato inicial do jogo colocava os melhores jogadores da Conferência Leste contra os melhores da Conferência Oeste.</li><br>
+                <li><b>Seleção dos Jogadores:</b> Os jogadores para o All-Star Game são selecionados por meio de uma combinação de votos dos fãs, votos dos jogadores e votos dos meios de comunicação. Os fãs têm a oportunidade de votar em seus jogadores favoritos através de várias plataformas, incluindo online e por meio de redes sociais.</li><br>
+                <li><b>Fim de Semana do All-Star:</b> O All-Star Game é o ponto culminante de um fim de semana repleto de eventos emocionantes, incluindo o Jogo das Estrelas, o Concurso de Habilidades, o Concurso de 3 Pontos e o Concurso de Enterradas. Estes eventos adicionam uma dose extra de entretenimento e competição para os fãs e jogadores.</li><br>
+                <li><b>Localização:</b> O local do All-Star Game muda a cada ano, com cidades de todo os Estados Unidos tendo a oportunidade de sediar o evento. Isso permite que diferentes comunidades tenham a chance de experimentar a emoção do All-Star Game de perto.</li><br>
+                <li><b>Impacto Cultural:</b> Além do basquete, o All-Star Game se tornou um evento cultural importante, com uma variedade de atividades que vão além das quadras. Concertos, festas, eventos de caridade e encontros de fãs são realizados durante o fim de semana, tornando-o um momento de celebração para a comunidade e os fãs de basquete em todo o país.</li><br>
+                <li><b>Legado e Memórias:</b> O All-Star Game produziu inúmeras memórias memoráveis ao longo dos anos, desde jogadas incríveis até momentos emocionantes de camaradagem entre os melhores jogadores da liga. Momentos icônicos, como o arremesso de meia quadra de Michael Jordan em 1997 ou a performance incrível de Kobe Bryant em seu último All-Star Game em 2016, são lembrados e celebrados pelos fãs de basquete em todo o mundo.</li><br>
+                <li><b>Impacto Social:</b>Além do entretenimento, o All-Star Game também serve como uma plataforma para causas sociais importantes. Eventos de caridade e iniciativas comunitárias são realizados em conjunto com o All-Star Weekend, permitindo que a NBA e seus jogadores façam uma diferença positiva nas comunidades ao redor do mundo.</li><br>
+            </ul>
+                <p>Em resumo, o All-Star Game da NBA é muito mais do que apenas um jogo de basquete. É um evento cultural, social e esportivo que une fãs e 
+                    jogadores em torno da paixão pelo jogo e do desejo de fazer a diferença. É uma celebração do talento, da competição e da camaradagem que 
+                    torna o basquete tão especial.</p>
+            </p>
+        </div>
+    </section>
+    <section>
+    <div>
+      <h3>Seleção dos Jogadores</h3>
+      <p> O processo de seleção dos jogadores para o All-Star Game da NBA envolve várias etapas e participantes, incluindo fãs, jogadores, técnicos e a mídia. </p>
+        <li><b>Fase Inicial:</b> Os fãs têm a oportunidade de votar em seus jogadores favoritos para serem titulares no All-Star Game.</li>
+        <li><b>Como Votar:</b> A votação é geralmente feita online, através do site da NBA, aplicativos móveis e plataformas de redes sociais.</li>
+        <li><b>Peso dos Votos:</b> Até recentemente, os votos dos fãs contavam como 50% da decisão final para os titulares.</li>
+        <p>Votação dos Jogadores e da Mídia</p>
+        <li>Jogadores: Os próprios jogadores da NBA também participam da votação e seus votos contam como 25% da decisão final para os titulares.</li>
+        <li>Mídia: Membros selecionados da mídia esportiva também votam e seus votos igualmente contam como 25%.</li>
+    </div>
+  </section>
+
+ 
+    O All-Star Game da NBA é um evento anual que reúne os melhores jogadores da liga em uma partida de basquete de exibição. O jogo é parte do fim de semana do All-Star da NBA, que inclui uma série de eventos, como o Desafio das Estrelas (Rising Stars Challenge), o Concurso de Habilidades (Skills Challenge), o Concurso de Três Pontos (Three-Point Contest), o Concurso de Enterradas (Slam Dunk Contest) e o próprio All-Star Game.
+    
+    O All-Star Game é tradicionalmente realizado no domingo à noite durante o fim de semana do All-Star, e os jogadores são selecionados através de uma combinação de votos dos fãs, votos dos jogadores e votos da imprensa. Os jogadores mais votados de cada conferência são nomeados capitães de equipe e têm a oportunidade de escolher os jogadores para suas equipes durante o Draft do All-Star Game.
+    
+    O jogo em si é caracterizado por uma atmosfera descontraída e uma exibição de habilidades espetaculares dos melhores jogadores da NBA. Os fãs têm a oportunidade de ver algumas das maiores estrelas do basquete jogando juntas em um ambiente de entretenimento.
+    
+    Além de proporcionar entretenimento aos fãs, o All-Star Game também serve como uma homenagem aos jogadores mais talentosos da liga e como uma oportunidade para eles interagirem e se divertirem juntos.
+
+    <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Times</a></li>
+                      <li><a href="http://localhost/pasta_teste/players.html">Jogadores</a></li>
+                      <li><a href="http://localhost/pasta_teste/arenas.html">Arenas</a></li>
+                      <li><a href="#">Contato</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-6">
+                  <div class="social-icons">
+                      <a href="https://github.com/techybluiz"><i class="fa-brands fa-github"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.linkedin.com/in/bianca-santos-71227a19b/"><i class="fa-brands fa-linkedin"></i></a>
+                      <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <p>&copy; 2024 Todos os direitos reservados. Desenvolvido por Bianca Luiz.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-fIS28fKNuSy82olZu2UNUbzJrjKk4cOeY0PnN/3kq5CkTX9aW1Kgq3M08iIKG/mnEw5rwS8QqH0a1ED6N5O4Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>>
+</body>
+</html>

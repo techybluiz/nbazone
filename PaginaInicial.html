@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pagina Inicial - NBA </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Dosis:wght@200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://localhost/pasta_teste/paginainicial.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script> import Card from 'primevue/card'; </script>
+    <style>
+      body{
+        font-family: "Inter", sans-serif;
+        background-color: #FFFFFF;
+      }
+      .dark-mode {
+        font-family: "Inter", sans-serif;
+        background-color: #2c2c2c;
+        color: #fff; /* Cor do texto para dark mode */
+      }
+      .splashbaner {
+        width: 100%;
+        height: auto;
+      }
+      .introducao {
+        padding: 35px;
+        padding-top: 10px;
+        align-items: center;
+      }
+      .titulo {
+        font-size: 30px;
+      }
+      a.nav-link{
+        color: #000000;
+      }
+      .bg-light{
+        background-color: #A7A6A6;
+      }
+      .toggle-mode {
+        width: 0px;
+        padding: 10px;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .toggle-mode:hover {
+        background-color: #ffffff;
+      }
+    .fa-solid, .fas {
+      width: 70px;
+        height: 70px;
+        cursor: pointer;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+    .bg-light{
+      background: #363636 ;
+    }
+    .grid {
+      padding-left: 55px;
+      font-weight: 400;
+      font-size: 27px;
+      display: flex; 
+      align-items: center; 
+  }
+      .grid-item {
+        color: #ff1616;
+        padding: 5px; 
+      }
+
+      .separator {
+          margin: 0 10px; 
+      }
+      .tema{
+        font-family: "Roboto Mono", monospace;
+        color: #b80c00;
+        padding-left: 35px;
+        margin-top: 25px;
+      }
+      .maurice{
+            width: 300px;
+            float: right;
+            margin-right: 30px;
+      }
+      .formcontainer {
+        max-width: 800px;
+        margin: auto;
+        background: #c5c5c5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .dark-mode .formcontainer {
+      max-width: 800px;
+      margin: auto;
+      background: #5c5c5c;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+      form {
+          display: grid;
+          gap: 10px;
+      }
+      label {
+          display: block;
+          font-weight: bold;
+          color: #555;
+      }
+      input[type="text"],
+      input[type="email"],
+      textarea {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+      }
+      textarea {
+          resize: vertical;
+          height: 100px;
+      }
+      input[type="submit"] {
+          background-color: #790000;
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+      input[type="submit"]:hover {
+          background-color: #b60000;
+      }
+      footer {
+        background-color: #1d1d1d;
+        color: #fff;
+        padding: 30px 0;
+        font-size: 14px;
+        text-align: center;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .dark-mode footer {
+      background-color: #636363;
+      color: #292929;
+      padding: 30px 0;
+      font-size: 14px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+  }
+
+      footer ul {
+          list-style: none;
+          padding: 0;
+      }
+      footer ul li {
+          display: inline-block;
+          margin: 0 10px;
+      }
+      footer ul li a {
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.3s ease;
+      }
+      footer ul li a:hover {
+          color: #cc0700;
+      }
+
+      footer .social-icons a {
+          color: #fff;
+          font-size: 20px;
+          margin: 0 10px;
+          text-decoration: none;
+          transition: color 0.2s ease;
+      }
+      footer .social-icons a:hover {
+          color: #c00000;
+      }
+      footer p {
+          margin-top: 20px;
+          font-size: 12px;
+      }
+
+    
+    </style>
+</head>
+  <body>
+ <img  class="splashbaner" src="https://i.ibb.co/wWTKKRC/darkmode.png" alt="Onde-a-paix-o-pelo-basquete-ganha-vida"></a><a target='_blank' href='https://pt-br.imgbb.com/'></a>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <img class="logo" src="data:image/png;base64,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"></a>
+          <h1 class="titulo">Pagina Inicial</h1>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost/pasta_teste/AllStarGames.html">All Star Games</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost/pasta_teste/arenas.html">Arenas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Times</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost/pasta_teste/players.html">Jogadores</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contato</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <button id="toggle-mode" class="toggle-mode"><i class="fa-solid fa-moon"></i></button>
+  </header>
+  <script>
+    const toggleButton = document.getElementById('toggle-mode');
+    toggleButton.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+  <div>
+    <h1 class="info">Informações importantes</h1>
+    <br>
+    <P class="introducao">
+        Bem-vindo(a) ao meu site dedicado ao universo da NBA!!<br>
+        Este é um espaço criado com o intuito inicial apenas para estudo e compartilhar informações verídicas sobre a National Basketball Association. Meu interesse pelo basquete e pela dinâmica do esporte me inspiraram a criar este espaço, onde você encontrará uma variedade de conteúdos relacionados ao universo da NBA.<br>
+        
+        É importante ressaltar que todas as informações contidas neste site são verdadeiras e foram cuidadosamente pesquisadas para garantir precisão e confiabilidade<br>
+        
+        O tema da NBA foi escolhido por ser mais do que apenas um tópico de interesse - é um hobby pessoal.<br>
+        
+        Este site é uma tentativa inicial e está sujeito a alterações futuras, à medida que buscos aprimorar a experiência do usuário e expandir o conteúdo.<br>
+        <br>
+        Gostaria muito de ouvir sua opinião sobre o que achou do site! Por favor, sinta-se à vontade para deixar seus comentários, ideias de melhorias ou críticas construtivas na aba de opiniões, que se encontra no final da página.<br>
+    </P>
+  </div>
+
+  <div class="grid">
+ 
+      <div class="grid-item"><b>+450 Jogadores</b></div>
+      <div class="separator"><b>|</b></div>
+      <div class="grid-item"><b>+29 Arenas</b></div>
+      <div class="separator"><b>|</b></div>
+      <div class="grid-item"><b>+4,53 milhões Telespectadores</b></div>
+      <div class="separator"><b>|</b></div>
+      <div class="grid-item"><b>+70 anos de História</b></div>
+
+</div>
+<br>
+<div>
+  <h2 class="tema">História da NBA</h2>
+  <P>
+    A NBA, sigla para <b>National Basketball Association</b>, representa o ápice do basquete profissional não apenas nos Estados Unidos, mas em todo o mundo. Sua história remonta ao ano de 1946, quando foi fundada como Basketball Association of America (BAA), resultado da união de várias ligas menores de basquete. A primeira temporada oficial da NBA ocorreu em 1949, após a fusão com a <b>National Basketball League (NBL)</b>, estabelecendo-se como a principal liga profissional do esporte nos Estados Unidos.
+
+    Nos seus primeiros anos, a NBA viu o surgimento de grandes jogadores como ,George Mikan, Bob Cousy e Bill Russell, que ajudaram a solidificar o status da liga. A década de 1960 foi dominada pelo <a href="BostonCeltics.html">Boston Celtics</a> de Bill Russell, que conquistou 11 títulos em 13 anos, estabelecendo um padrão de sucesso e rivalidade com outras equipes notáveis da época.<br>
+    <br>
+    Na década de 1970, a NBA testemunhou a emergência de superastros como Kareem Abdul-Jabbar e Julius Erving (Dr. J), que contribuíram para a popularidade e o crescimento da liga. Os anos 1980 foram marcados pela rivalidade lendária entre Boston Celtics e Los Angeles Lakers, personificada por Larry Bird e Magic Johnson, respectivamente. Esta década viu a NBA alcançar novos patamares de popularidade e globalização.<br>
+    <br>
+    O ícone supremo da NBA, Michael Jordan, emergiu nos anos 1990 como uma figura dominante, levando o Chicago Bulls a seis títulos de campeonato durante sua era. Jordan não apenas redefiniu o jogo de basquete, mas também elevou a NBA a um nível global sem precedentes, tornando-a uma força cultural e comercial globalmente reconhecida.<br>
+    <br>
+    Desde o início do século XXI, a NBA continuou a expandir seu alcance internacional, com a ascensão de novos superastros como <a href="">Kobe Bryant</a>, <a href="">LeBron James</a>, e mais recentemente, <a href="">Kevin Durant</a> e <a href="">Stephen Curry</a>. A liga não é apenas um espetáculo esportivo, mas também um fenômeno cultural, abraçando questões sociais e impulsionando mudanças através do ativismo dos jogadores.<br>
+    <br>
+    Atualmente, a NBA consiste em 30 equipes divididas em duas conferências: Conferência Leste e Conferência Oeste. A temporada regular, que vai de outubro a abril, é seguida pelos playoffs e culmina com as Finais da NBA em junho. A liga continua a ser uma força inovadora, utilizando tecnologia avançada e mídias sociais para expandir sua base de fãs e melhorar a experiência do espectador.
+  </P>
+</div>
+<div>
+  <h2 class="tema">Maurice Podoloff</h2>
+  <img class="maurice" src="https://www.jewishsports.net/BioImages/bookA_Page_032_Image_0001.jpg" alt="Maurice Podoloff">
+  <p>
+    Maurice Podoloff foi uma figura significativa no mundo dos esportes americanos do século XX, especialmente no basquete.
+
+    Maurice Podoloff nasceu em 1890 na Ucrânia, então parte do Império Russo. Sua família emigrou para os Estados Unidos, onde ele cresceu e recebeu sua educação.
+
+    Podoloff entrou no mundo do esporte profissional através da administração. Ele trabalhou como gerente geral e proprietário de equipes esportivas, inicialmente no hóquei no gelo.<br>
+    <br>
+    Antes de se envolver com o basquete, Maurice Podoloff foi presidente da American Hockey League (AHL) de 1938 a 1943. Sua experiência na AHL o preparou para futuros papéis de liderança em ligas esportivas.
+
+    Em 1946, Maurice Podoloff foi um dos principais arquitetos por trás da fundação da <b>Basketball Association of America (BAA)</b>, que mais tarde se fundiu com a <b>National Basketball League (NBL)</b> em 1949 para formar a NBA. Podoloff foi escolhido como o primeiro presidente da BAA e continuou a liderar a liga após a fusão, servindo como o primeiro presidente da NBA até 1963.<br>
+    <br>
+    Sob a presidência de Podoloff, a NBA começou a crescer e se estabelecer como a principal liga profissional de basquete nos Estados Unidos. Ele ajudou a estabelecer as bases administrativas e operacionais que permitiram à NBA prosperar ao longo dos anos.
+
+    Após sua aposentadoria da NBA, Maurice Podoloff continuou a ser lembrado como uma figura histórica importante no basquete profissional americano.<br>
+    <br>
+    Ele faleceu em 1985, deixando um legado duradouro na história da NBA.
+  </p>
+</div>
+<hr>
+
+<div class="formcontainer">
+  <h2><b>Formulário de Opiniões</b></h2>
+  <p>Deixe sua opinião sobre o que achou do site</p>
+  <form action="#" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="opiniao">Opinião:</label>
+      <textarea id="opiniao" name="opiniao" required></textarea>
+      <input type="submit" value="Enviar Opinião">
+  </form>
+</div>
+<br>
+<footer>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="times.html">Times</a></li>
+                  <li><a href="http://localhost/pasta_teste/players.html">Jogadores</a></li>
+                  <li><a href="#">Arenas</a></li>
+                  <li><a href="#">Notícias</a></li>
+                  <li><a href="#">Contato</a></li>
+              </ul>
+          </div>
+          <div class="col-md-6">
+              <div class="social-icons">
+                  <a href="https://github.com/techybluiz"><i class="fa-brands fa-github"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <p>&copy; 2024 Todos os direitos reservados. Desenvolvido por Bianca Luiz.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-fIS28fKNuSy82olZu2UNUbzJrjKk4cOeY0PnN/3kq5CkTX9aW1Kgq3M08iIKG/mnEw5rwS8QqH0a1ED6N5O4Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+</html>

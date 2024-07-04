@@ -1,0 +1,30 @@
+body{
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: #eeeeee;
+    color:rgb(0, 0, 0) ;
+}
+h1{
+  font-family: "Space Mono", monospace; 
+  color: #b80c00;
+  text-align: center;
+  padding: 5px;
+}
+p {
+  margin: 20px;
+    padding: 25px;
+    font-size: 20px;
+}
+footer{
+  text-align: center;
+  width: 100%;
+}
+body {
+  color:rgb(0, 0, 0) ;
+  transition: background-color 0.3s ease;
+}
+header {
+    background-color: #eeeeee;
+    text-align: center;
+}

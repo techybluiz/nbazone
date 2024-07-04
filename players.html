@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jogadores - NBA </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Dosis:wght@200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://localhost/pasta_teste/paginainicial.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script> import Card from 'primevue/card'; </script>
+    <style>
+        .info {
+            background-color: white;
+        }
+        .playerbaner {
+            width: 100%;
+        }
+        .toggle-mode{
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+          }
+          .dark-mode {
+            background-color: #333; 
+            color: #fff;
+        } 
+          .form-inline {
+            float: right;}
+          
+          .form-control {
+            width: 50%;
+          }
+          .logo{
+            width: 3em;
+            height: 3em;
+          }
+          .subnav {
+            padding: 10px 0;
+        }
+        .filters {
+            margin-bottom: 10px;
+        } 
+         .table .table-striped {
+          width: 60%;
+         }
+        img {
+            width: 100px;
+          }
+          /* Estilos para o dark mode */
+          .dark-mode {
+              background-color: #333; /* Cor de fundo para dark mode */
+              color: #fff; /* Cor do texto para dark mode */
+          }
+          /* Estilos para o botão de toggle */
+          #toggle-mode {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              font-size: 1.5rem;
+              color: #333; /* Cor do ícone */
+              transition: color 0.3s ease;
+          }
+          #toggle-mode:hover {
+              color: #555; /* Cor do ícone ao passar o mouse */
+          }
+
+          footer {
+            background-color: #1d1d1d;
+            color: #fff;
+            padding: 30px 0;
+            font-size: 14px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Estilos para a seção de links no footer */
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        footer ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer ul li a:hover {
+            color: #5f00cc;
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            font-size: 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        footer .social-icons a:hover {
+            color: #4a2fc4;
+        }
+        footer p {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+    </style>
+
+
+<body>
+    <img class="playerbaner" src="https://i.ibb.co/qxYLmXS/banerjogadores.png" alt="">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <img class="logo" src="data:image/png;base64,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"></a>
+            <h1 class="titulo">Jogadores</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/pasta_teste/AllStarGames.html">All Star Games</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/pasta_teste/arenas.html">Arenas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Times</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/pasta_teste/players.html">Jogadores</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contato</a>
+                </li>
+              </ul>
+              <button id="toggle-mode"><i class="fa-solid fa-moon"></i></button>
+            </div>
+          </nav>
+    </header>
+    <script>
+      const toggleButton = document.getElementById('toggle-mode');
+      toggleButton.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+});
+  </script>
+
+
+   <div class="info">
+    <div class="container">
+      <div class="subnav">
+          <form class="form-inline" id="searchForm">
+              <input class="form-control mr-sm-2" type="search" id="searchInput" placeholder="Pesquisar" aria-label="Pesquisar">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+          </form>
+      </div>
+      <div class="filters">
+        <label for="teamFilter"><b>Filtrar por Time:</b></label>
+        <select class="form-control" id="teamFilter">
+            <option value="">Todos os Times</option>
+            <option value="Outro">ATL</option>
+            <option value="Outro">BOS</option>
+            <option value="Outro">BRO</option>
+            <option value="Outro">HOR</option>
+            <option value="Outro">CHI</option>
+            <option value="Outro">CHA</option>
+            <option value="Outro">CLE</option>
+            <option value="NYK">NYK</option>
+            <option value="HOU">HOU</option>
+            <option value="Outro">JAZ</option>
+            <option value="Outro">WIZ</option>
+        </select>
+        <label for="nameFilter"><b>Filtrar por Nome:</b></label>
+        <input type="text" class="form-control" id="nameFilter" placeholder="Filtrar por nome...">
+    </div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Jogador</th>
+            <th scope="col">Time</th>
+            <th scope="col">Pais</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><a href="#">Precious Achiuwa</a></td>
+            <td><a href="#">NYK</a></td>
+            <td>Nigeria</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Steve Adams</td>
+            <td>HOU</td>
+            <td>Nova Zelândia</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td><a href="#">Bam Adebayo</a></td>
+            <td><a href="#">MIA</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td><a href="#">Ochai Agbaji</a></td>
+            <td>TOR</td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td><a href="#">Santi Aldama</a></td>
+            <td>MEM</td>
+            <td>Espanha</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>NICKEIL ALEXANDER-WALKER</td>
+            <td>NYK</td>
+            <td>Canadá</td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>Grayson Allen</td>
+            <td>NYK</td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td>Jarrett Allen</td>
+            <td>NYK</td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td>Jose Alvarado</td>
+            <td>NYK</td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">10</th>
+            <td><a href="#">Kyle Anderson</a></td>
+            <td>NYK</td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">11</th>
+            <td><a href="#">Giannis Antetokounmpo</a></td>
+            <td><a href="#">MIL</a></td>
+            <td>Grécia</td>
+          </tr>
+          <tr>
+            <th scope="row">12</th>
+            <td><a href="#">Thanasis Antetokounmpo</a></td>
+            <td><a href="#">MIL</a></td>
+            <td>Grécia</td>
+          </tr>
+          <tr>
+            <th scope="row">13</th>
+            <td><a href="#">Cole Anthony</a></td>
+            <td><a href="#">ORL</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">14</th>
+            <td><a href="#">OG Anunoby</a></td>
+            <td><a href="#">NYK</a></td>
+            <td>Reino Unido</td>
+          </tr>
+          <tr>
+            <th scope="row">15</th>
+            <td><a href="#">Deni Avdija</a></td>
+            <td><a href="#">WAS</a></td>
+            <td>Israel</td>
+          </tr>
+          <tr>
+            <th scope="row">16</th>
+            <td><a href="#">Deandre Ayton</a></td>
+            <td><a href="#">POR</a></td>
+            <td>Bahamas</td>
+          </tr>
+          <tr>
+            <th scope="row">17</th>
+            <td><a href="#">Udoka Azubuike</a></td>
+            <td><a href="#">ORL</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">18</th>
+            <td><a href="#">Cole Anthony</a></td>
+            <td><a href="#">ORL</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">19</th>
+            <td><a href="#">Ibou Badji</a></td>
+            <td><a href="#">POR</a></td>
+            <td>Senegal</td>
+          </tr>
+          <tr>
+            <th scope="row">20</th>
+            <td><a href="#">Marvin Bagley III</a></td>
+            <td><a href="#">WAS</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">21</th>
+            <td><a href="#">Amari Bailey</a></td>
+            <td><a href="#">CHA</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">22</th>
+            <td><a href="#">Patrick Baldwin Jr.</a></td>
+            <td><a href="#">WAS</td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">23</th>
+            <td><a href="#">LaMelo Bail</a></td>
+            <td><a href="#">CHA</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">24</th>
+            <td><a href="#">Lonzo Ball</a></td>
+            <td><a href="#">CHA</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">25</th>
+            <td><a href="#">Mo Bamba</a></td>
+            <td><a href="#">CHA</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">26</th>
+            <td><a href="#">Paolo Banchero</a></td>
+            <td><a href="#">CHA</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">27</th>
+            <td><a href="#">Desmond Bane</a></td>
+            <td><a href="#">MEM</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">28</th>
+            <td><a href="#">Dalano Banton</a></td>
+            <td><a href="#">POR</a></td>
+            <td>Canadá</td>
+          </tr>
+          <tr>
+            <th scope="row">29</th>
+            <td><a href="#">Dominick Barlow</a></td>
+            <td><a href="#">SAS</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">30</th>
+            <td><a href="#">Harrison Barnes</a></td>
+            <td><a href="#">SAC</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">31</th>
+            <td><a href="#">Scottie Barnes</a></td>
+            <td><a href="#">TOR</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">32</th>
+            <td><a href="#">RJ Barrett</a></td>
+            <td><a href="#">TOR</a></td>
+            <td>Canadá</td>
+          </tr>
+          <tr>
+            <th scope="row">33</th>
+            <td><a href="#">Charles Bassey</a></td>
+            <td><a href="#">SAS</a></td>
+            <td>Nigéria</td>
+          </tr>
+          <tr>
+            <th scope="row">34</th>
+            <td><a href="#">Emoni Bates</a></td>
+            <td><a href="#">CLE</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">35</th>
+            <td><a href="#">Keita Bates-Diop</a></td>
+            <td><a href="#">BKN</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">36</th>
+            <td><a href="#">Nicolas Batum</a></td>
+            <td><a href="#">PHI</a></td>
+            <td>França</td>
+          </tr>
+          <tr>
+            <th scope="row">37</th>
+            <td><a href="#">Darius Bazley</a></td>
+            <td><a href="#">UTA</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">38</th>
+            <td><a href="#">Bradley Beal</a></td>
+            <td><a href="#">PHX</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">39</th>
+            <td><a href="#">Malik Beasley</a></td>
+            <td><a href="#">MIL</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">40</th>
+            <td><a href="#">MarJon Beauchamp</a></td>
+            <td><a href="#">MIL</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">41</th>
+            <td><a href="#">Jules Bernard</a></td>
+            <td><a href="#">WAS</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">42</th>
+            <td><a href="#">Davis Bertans</a></td>
+            <td><a href="#">CHA</a></td>
+            <td>Letônia</td>
+          </tr>
+          <tr>
+            <th scope="row">43</th>
+            <td><a href="#">Patrick Beverley</a></td>
+            <td><a href="#">MIL</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">44</th>
+            <td><a href="#">Saddiq Bey</a></td>
+            <td><a href="#">ATL</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">45</th>
+            <td><a href="#">Goga Bitadze</a></td>
+            <td><a href="#">ORL</a></td>
+            <td>Geórgia</td>
+          </tr>
+          <tr>
+            <th scope="row">46</th>
+            <td><a href="#">Onuralp Bitim</a></td>
+            <td><a href="#">CHI</a></td>
+            <td>Turquia</td>
+          </tr>
+          <tr>
+            <th scope="row">47</th>
+            <td><a href="#">Bismack Biyombo</a></td>
+            <td><a href="#">OKC</a></td>
+            <td>República Democrática do Congo</td>
+          </tr>
+          <tr>
+            <th scope="row">28</th>
+            <td><a href="#">Anthony Black</a></td>
+            <td><a href="#">ORL</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">49</th>
+            <td><a href="#">Leaky Black</a></td>
+            <td><a href="#">CHA</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+          <tr>
+            <th scope="row">50</th>
+            <td><a href="#">Buddy Boeheim</a></td>
+            <td><a href="#">DET</a></td>
+            <td>Estados Unidos</td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   <script>
+       $(document).ready(function() {
+           // Filtro por Time
+           $('#teamFilter').change(function() {
+               filterTable();
+           });
+
+           // Filtro por Nome
+           $('#nameFilter').keyup(function() {
+               filterTable();
+           });
+
+           // Pesquisa por Nome
+           $('#searchForm').submit(function(e) {
+               e.preventDefault(); // Evita o envio padrão do formulário
+               filterTable();
+           });
+
+           function filterTable() {
+               var inputText = $('#searchInput').val().toLowerCase();
+               var teamFilter = $('#teamFilter').val();
+               var nameFilter = $('#nameFilter').val().toLowerCase();
+
+               $('table tbody tr').each(function() {
+                   var showRow = true;
+
+                   var playerName = $(this).find('td:nth-child(2)').text().toLowerCase();
+                   var teamName = $(this).find('td:nth-child(3)').text();
+
+                   if (inputText !== '' && playerName.indexOf(inputText) === -1) {
+                       showRow = false;
+                   }
+
+                   if (teamFilter !== '' && teamName !== teamFilter) {
+                       showRow = false;
+                   }
+
+                   if (nameFilter !== '' && playerName.indexOf(nameFilter) === -1) {
+                       showRow = false;
+                   }
+
+                   if (showRow) {
+                       $(this).show();
+                   } else {
+                       $(this).hide();
+                   }
+               });
+           }
+       });
+   </script>
+
+   <nav aria-label="Navegação de página exemplo">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+    </ul>
+  </nav>
+
+
+  <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Times</a></li>
+                    <li><a href="http://localhost/pasta_teste/players.html">Jogadores</a></li>
+                    <li><a href="http://localhost/pasta_teste/arenas.html">Arenas</a></li>
+                    <li><a href="#">Notícias</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="social-icons">
+                    <a href="https://github.com/techybluiz"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/bianca-santos-71227a19b/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; 2024 Todos os direitos reservados. Desenvolvido por Bianca Luiz.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-fIS28fKNuSy82olZu2UNUbzJrjKk4cOeY0PnN/3kq5CkTX9aW1Kgq3M08iIKG/mnEw5rwS8QqH0a1ED6N5O4Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
+</body>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://localhost/pasta_teste/times.css" />
+    <title>NBAZone - Times</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: rgb(208,208,208);
+            background: linear-gradient(0deg, rgba(208,208,208,1) 31%, rgba(6,9,19,1) 100%);
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 35px;
+            font-family: "Space Mono", monospace; 
+            font-weight: 600;
+            margin-top: 50px;
+            color: #ffffff;
+        }
+        .teams-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .team {
+            width: 150px;
+            height: 150px;
+            margin: 30px;
+            overflow: hidden;
+            cursor: pointer;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+        .team img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-fit: contain;
+        }
+        .team:hover {
+            transform: scale(1.1);
+        }
+        .team-info {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            text-align: left;
+            width: 80%;
+            max-width: 400px;
+        }
+        
+        .link {
+            text-align: center;
+            left: 25%; 
+            transform: translate(-40%, -40%); 
+            font-size: 25px;
+            color: #000000;
+            border: 5px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #close-btn {
+            display: none;
+        }
+
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(0,0,1);
+            z-index: 1000;
+        }
+        .screenh1{
+            color: rgb(255, 255, 255) ;
+            font-family: FreeMono, monospace; 
+            width: 100%;
+            align-items: center;
+        }
+        .splash-content {
+            text-align: center;
+        }
+
+        #main-content {
+            padding: 20px;
+            display: none;
+        }
+        .logo{
+            width: 4em;
+            height: 4em;
+            float: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          .loading-container {
+            width: 100px; 
+            height: 100px; 
+            padding-left: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          .loading {
+            padding-left: 50px;
+            padding-right: 50px;
+            width: 100px;
+            height: 100px;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid #a10000;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+          }
+          
+          @keyframes spin {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+        document.getElementById('splash-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        }, 2500);
+});
+    </script>
+
+    <div id="splash-screen">
+        <img src="https://icons.pn.vg/2019/11/14/5dcd9fafae66a.png" class="logo" alt="NBA LOGO">
+        <div class="splash-content">
+            <div class="loading-container">
+                <div class="loading"></div>
+            </div>
+            <h1 class="screenh1">Bem vindo(a) a NBAZone!</h1>
+            <p style="color: #ffffff;">Carregando....</p>
+          
+        </div>
+    </div>
+    <div id="main-content" style="display:none;">  
+    <h1>Antes de começar conte pra gente qual é o seu time favorito?</h1>
+    <div class="teams-container">
+    </div>
+    <div id="team-info" class="team-info">
+        <span id="close-btn">&times;</span>
+        <h2 id="team-name"></h2>
+        <p id="team-fact"></p>
+        <a class="link" id="team-link" href="#">Começar</a>
+    </div>
+    <script>
+        const teams = [
+            { name: "Atlanta Hawks", img: "https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg",  fact: " Hawks Fans! Você sabia que o Atlanta Hawks é um dos times mais antigos da NBA?.", colorClass: "ATL" },
+            { name: "Boston Celtics", img: "https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg", fact: "Celtics Fans! Você sabia que o Boston Celtics é o time com o maior número de títulos da NBA, com 17 campeonatos conquistados?", colorClass: "BOS" },
+            { name: "Brooklyn Nets", img: "https://cdn.nba.com/logos/nba/1610612751/global/L/logo.svg", fact: "O Brooklyn Nets se mudou de New Jersey para Brooklyn em 2012.", colorClass: "NETS" },
+            { name: "Charlotte Hornets", img: "https://cdn.nba.com/teams/uploads/sites/1610612766/2022/04/hornets_logo2.svg", fact: "Hornets Fans! Você sabia que o Charlotte Hornets foi originalmente fundado em 1988 e, após uma pausa, a franquia retornou à cidade em 2004?",colorClass: "HORNETS" },
+            { name: "Chicago Bulls", img: "https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg", fact: "Bulls Fans! O Chicago Bulls é conhecido pela era Michael Jordan e seus seis campeonatos.", colorClass: "BULLS"  },
+            { name: "Cleveland Cavaliers", img: "https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg", fact: "Cavaliers Fans! Os Cleveland Cavaliers conquistaram seu primeiro título da NBA em 2016, encerrando um jejum de 52 anos para Cleveland em campeonatos profissionais.", colorClass: "CLE"  },
+            { name: "Dallas Mavericks", img: "https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg", fact: "Mavericks Fans! Você sabia que o Dallas Mavericks ganhou seu único título da NBA em 2011, liderados por Dirk Nowitzki?.", colorClass: "MAV"  },
+            { name: "Denver Nuggets", img: "https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg", fact: "Nuggets Fans! Você sabia que o Denver Nuggets foi um dos times fundadores da ABA antes de se juntar à NBA em 1976?", colorClass: "DEN"  },
+            { name: "Detroit Pistons", img: "https://cdn.nba.com/teams/uploads/sites/1610612765/2021/09/dp-primary.svg", fact: "Pistons Fans! Os Detroit Pistons são famosos por sua defesa física e estilo de jogo agressivo, o que os levou a três títulos da NBA (1989, 1990, 2004).", colorClass: "DET"  },
+            { name: "Golden State Warriors", img: "https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg", fact: "Warriors Fans! Os Golden State Warriors estabeleceram um recorde de 73 vitórias na temporada regular de 2015-2016, superando o recorde anterior do Chicago Bulls.", colorClass: "GSW"  },
+            { name: "Houston Rockets", img: "https://cdn.nba.com/logos/nba/1610612745/global/L/logo.svg", fact: "Rockets Fans! O Houston Rockets popularizou o estilo de jogo small ball na NBA, focado em arremessos de três pontos e velocidade em vez de altura.", colorClass: "HOU"},
+            { name: "Indiana Pacers", img: "https://upload.wikimedia.org/wikipedia/pt/e/ef/Indiana_Pacers.png", fact: "Pacers Fans! Reggie Miller, uma lenda dos Indiana Pacers, é conhecido por seus arremessos de três pontos decisivos e suas performances memoráveis nos playoffs.", colorClass: "IND"  },
+            { name: "Los Angeles Clippers", img: "https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg", fact: "Clippers Fans! Originalmente conhecidos como San Diego Clippers, a equipe se mudou para Los Angeles em 1984 e tem buscado se afirmar como uma das equipes de elite da NBA.", colorClass: "LAC"  },
+            { name: "Los Angeles Lakers", img: "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg", fact: "Lakers Fans! O Los Angeles Lakers é um dos times mais bem-sucedidos da história da NBA." , colorClass: "LAL" },
+            { name: "Memphis Grizzlies", img: "https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg", fact: "Grizzlies Fans! Antes de se mudarem para Memphis, os Memphis Grizzlies eram os Vancouver Grizzlies, uma das primeiras equipes da NBA no Canadá.", colorClass: "MEM"  },
+            { name: "Miami Heat", img: "https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg", fact: " Heat Fans! O nome Miami Heat foi escolhido como uma representação do clima quente e tropical de Miami.", colorClass: "MIA"  },
+            { name: "Milwaukee Bucks", img: "https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg", fact: "Bucks Fans! Os Bucks foram a primeira expansão da NBA após a mudança de localização dos Hawks de St. Louis para Atlanta em 1968.", colorClass: "BUCKS"  },
+            { name: "Minnesota Timberwolves", img: "https://cdn.nba.com/teams/uploads/sites/1610612750/2021/11/logo-1.svg", fact: "Timberwolves Fans! Os Minnesota Timberwolves selecionaram Kevin Garnett na primeira rodada do Draft de 1995, marcando uma era de sucesso para a franquia. ", colorClass: "WOLVES"  },
+            { name: "New Orleans Pelicans", img: "https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg", fact: " Pelicans Fans! O nome Pelicans foi escolhido como uma homenagem à fauna da região de Nova Orleans após a devastação do Furacão Katrina", colorClass: "PELICANS"  },
+            { name: "New York Knicks", img: "https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg", fact: "Knicks Fans! Madison Square Garden, onde os New York Knicks jogam, é conhecido como a meca do basquete devido à sua importância histórica", colorClass: "NYK"  },
+            { name: "Oklahoma City Thunder", img: "https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg", fact: "Thunder Fans! Antes de se tornarem o Oklahoma City Thunder, a equipe era o Seattle SuperSonics.", colorClass: "THU"  },
+            { name: "Orlando Magic", img: "https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg", fact: "Magic Fans! Shaquille O'Neal foi selecionado pelo Orlando Magic como a primeira escolha geral do Draft de 1992, iniciando uma era de sucesso para a franquia.", colorClass: "MAG"  },
+            { name: "Philadelphia 76ers", img: "https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg", fact: "Os 76ers foram a primeira equipe de expansão a ganhar um título da NBA em 1967, liderados por Wilt Chamberlain.", colorClass: "ERS"  },
+            { name: "Phoenix Suns", img: "https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg", fact: "Suns Fans! Steve Nash, uma lenda dos Phoenix Suns, ganhou o prêmio de MVP da NBA em temporadas consecutivas (2004-2005, 2005-2006).", colorClass: "SUNS"  },
+            { name: "Portland Trail Blazers", img: "https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg", fact: "Trail Blazers Fans! Você sabia que o nome Trail Blazers foi escolhido em um concurso público, refletindo o espírito pioneiro e explorador associado à região do Noroeste dos Estados Unidos. ", colorClass: "BLA"  },
+            { name: "Sacramento Kings", img: "https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg", fact: " Kings Fans! Os Kings são conhecidos por terem uma das bases de fãs mais leais da NBA" , colorClass: "KINGS"} ,
+            { name: "San Antonio Spurs", img: "https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg", fact: "Spurs Fans! Os San Antonio Spurs são conhecidos por seu sucesso consistente ao longo das décadas, com cinco títulos da NBA desde 1999." , colorClass: "SPURS"  },
+            { name: "Toronto Raptors", img: "https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg", fact: " Raptors Fans! Os Raptors conquistaram seu primeiro título da NBA em 2019, tornando-se a primeira equipe não americana a vencer o campeonato" , colorClass: "RAP"},
+            { name: "Utha Jazz", img: "https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg", fact: " Jazz Fans! Karl Malone e John Stockton, conhecidos como um dos maiores duos da história da NBA, lideraram os Jazz em duas finais consecutivas nos anos 1990." , colorClass: "JAZZ" },
+            { name: "Washington Wizards", img: "https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg", fact: " Wizards Fans! Os Wizards, anteriormente conhecidos como Washington Bullets, mudaram seu nome em 1997 devido a preocupações com violência armada. " , colorClass: "WIZ" },
+            ];
+
+        const teamsContainer = document.querySelector('.teams-container');
+        const teamInfo = document.getElementById('team-info');
+        const teamName = document.getElementById('team-name');
+        const teamFact = document.getElementById('team-fact');
+        const teamLink = document.getElementById('team-link');
+  
+        teams.forEach(team => {
+            const teamElement = document.createElement('div');
+            teamElement.classList.add('team', team.colorClass); 
+            teamElement.innerHTML = `
+                <div class="team-img">
+                    <img src="${team.img}" alt="${team.name}">
+                </div>
+                <p>${team.name}</p>
+            `;
+                teamElement.addEventListener('click', () => {
+                teamName.textContent = team.name;
+                teamFact.textContent = team.fact;
+                teamLink.href = "http://localhost/pasta_teste/PaginaInicial.html";
+                teamInfo.className = `team-info ${team.colorClass}`; 
+                teamInfo.style.display = 'block';
+            });
+            teamsContainer.appendChild(teamElement);
+        });
+    </script>
+    </div>
+
+<script>
+    import { useState } from 'react';
+    import Button from 'react-bootstrap/Button';
+    import Card from 'react-bootstrap/Card';
+    import Collapse from 'react-bootstrap/Collapse';
+
+function Example() {
+  const [open, setOpen] = useState(false);
+
+  return (
+        <>
+        <Button
+            onClick={() => setOpen(!open)}
+            aria-controls="example-collapse-text"
+            aria-expanded={open}
+        >
+            click
+        </Button>
+        <div style={{ minHeight: '150px' }}>
+            <Collapse in={open} dimension="width">
+            <div id="example-collapse-text">
+                <Card body style={{ width: '400px' }}>
+                    
+                </Card>
+            </div>
+            </Collapse>
+        </div>
+        </>
+    );
+    }
+export default Example;
+</script>
+
+</body>
+</html>
+
